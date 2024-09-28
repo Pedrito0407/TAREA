@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movimiento de Cuadrado</title>
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0f0f0;
+      }
+
+      #square {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        background-color: red;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="square"></div>
+
+    <script>
+      const square = document.getElementById("square");
+
+      const moveSpeed = 10;
+
+      document.addEventListener("keydown", (event) => {
+        let left = parseInt(window.getComputedStyle(square).left);
+        let top = parseInt(window.getComputedStyle(square).top);
+        switch (event.key) {
+          case "ArrowUp":
+            square.style.top = `${top - moveSpeed}px`;
+            break;
+          case "ArrowDown":
+            square.style.top = `${top + moveSpeed}px`;
+            break;
+          case "ArrowLeft":
+            square.style.left = `${left - moveSpeed}px`;
+            break;
+          case "ArrowRight":
+            square.style.left = `${left + moveSpeed}px`;
+            break;
+        }
+      });
+    </script>
+  </body>
+</html>
